@@ -14,9 +14,12 @@
     </div>
   <% end %>
   <div class="col-md-12">
-    <%= form.label :image, "Portada", class: "form-label" %>
-    <%= form.file_field :image, class: "form-control" %>
-  </div>
+  <label for="file-input">
+    <div id="preview" class="preview"></div>
+      <%= form.label :image, "Imagen de portada", class: "form-label" %>
+      <%= form.file_field :image, class: "form-control", id: 'file-input', onChange: 'getImagePreview(event)' %>
+    </div>
+  </label>
   <div class="col-md-6">
     <%= form.label :name, "Titulo", class: "form-label" %>
     <%= form.text_field :name, class: "form-control" %>
@@ -56,3 +59,16 @@
     <%= form.submit "Guardar", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  function getImagePreview(event) {
+    let image = URL.createObjectURL(event.target.files[0]);
+    let icon = document.getElementById('icon');
+    let imagediv = document.getElementById('preview');
+    let newimg = document.createElement('img');
+    imagediv.innerHTML = '';
+    newimg.src = image;
+    imagediv.appendChild(newimg);
+    icon.style.display = 'none';
+  }
+</script>

@@ -36,3 +36,7 @@ body {
 .interactive-btns .btn {
     margin-right: 10px;
 }
+
+.preview img {
+    max-width: 100%;
+}
