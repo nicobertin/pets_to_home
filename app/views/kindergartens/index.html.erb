@@ -1,25 +1,29 @@
-<%= search_form_for @q, url: :kindergartens do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Nombre" %>
-    <%= f.search_field :name_cont, class: "form-control" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= search_form_for @q, url: :kindergartens, html: { class: "form-inline" } do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Nombre", class: "sr-only" %>
+          <%= f.search_field :name_cont, class: "form-control mr-sm-2", placeholder: "Buscar por nombre" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :city_id_eq, "Ciudad", class: "sr-only" %>
+          <%= f.collection_select :city_id_eq, City.all, :id, :name, { include_blank: true }, { class: "form-control mr-sm-2" } %>
+        </div>
+        <div class="d-grid gap-2">
+          <%= f.submit "Buscar", class: "btn btn-primary mt-3" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <div id="kindergartens" class="list-group">
+        <% @kindergartens.each do |kindergarten| %>
+          <%= link_to kindergarten_path(kindergarten), class: "text-decoration-none text-black" do %>
+            <%= render kindergarten %>
+          <% end %>
+        <% end %>
+        <%= paginate @kindergartens, class: "pagination justify-content-center" %>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :city_id_eq, "Ciudad" %>
-    <%= f.collection_select :city_id_eq, City.all, :id, :name, { include_blank: true }, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.submit "Buscar", class: "btn btn-primary" %>
-  </div>
-
-<% end %>
-
-<div id="kindergartens">
-  <% @kindergartens.each do |kindergarten| %>
-    <%= link_to kindergarten_path(kindergarten), class: "text-decoration-none text-black" do %>
-      <%= render kindergarten %>
-    <% end %>
-  <% end %>
-  <%= paginate @kindergartens %>
-
 </div>
