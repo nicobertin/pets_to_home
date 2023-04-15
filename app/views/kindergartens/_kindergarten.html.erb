@@ -11,7 +11,7 @@
 
   <p>
     <strong>City:</strong>
-    <%= kindergarten.city_id %>
+    <%= kindergarten.city.name %>
   </p>
 
   <p>
@@ -23,5 +23,11 @@
     <strong>User:</strong>
     <%= kindergarten.user_id %>
   </p>
+
+  <p>
+    <strong>Pets:</strong>
+    <%= kindergarten.pets.map(&:name).join(", ") %>
+  </p>
+
 
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_15_144533) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_15_145425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_144533) do
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_kindergartens_on_city_id"
     t.index ["user_id"], name: "index_kindergartens_on_user_id"
+  end
+
+  create_table "kindergartens_pets", id: false, force: :cascade do |t|
+    t.bigint "kindergarten_id"
+    t.bigint "pet_id"
+    t.index ["kindergarten_id"], name: "index_kindergartens_pets_on_kindergarten_id"
+    t.index ["pet_id"], name: "index_kindergartens_pets_on_pet_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -52,4 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_144533) do
 
   add_foreign_key "kindergartens", "cities"
   add_foreign_key "kindergartens", "users"
+  add_foreign_key "kindergartens_pets", "kindergartens"
+  add_foreign_key "kindergartens_pets", "pets"
 end
