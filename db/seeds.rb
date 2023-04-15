@@ -1,11 +1,3 @@
-User.all.destroy_all
-
-users = User.create([
-    { email: 'admin@petstohome.cl', password: 'admin1234', password_confirmation: 'admin1234' }
-])
-
-City.all.destroy_all
-
 cities = City.create([
     {name: 'Algarrobo'},
     {name: 'Alhué'},
@@ -354,4 +346,28 @@ cities = City.create([
     {name: 'Yumbel'},
     {name: 'Yungay'},
     {name: 'Zapallar'}
+])
+
+pets = Pet.create([
+  {name: 'Araña'},
+  {name: 'Búho'},
+  {name: 'Caballo'},
+  {name: 'Cabra'},
+  {name: 'Caracol'},
+  {name: 'Cerdo'},
+  {name: 'Conejo'},
+  {name: 'Gato'},
+  {name: 'Hamster'},
+  {name: 'Hurón'},
+  {name: 'Iguana'},
+  {name: 'Loro'},
+  {name: 'Oveja'},
+  {name: 'Pato'},
+  {name: 'Pavo'},
+  {name: 'Perro'},
+  {name: 'Pez'},
+  {name: 'Pollo'},
+  {name: 'Serpiente'},
+  {name: 'Tortuga'},
+  {name: 'Vaca'},
 ])
