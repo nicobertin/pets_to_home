@@ -4,11 +4,8 @@
 
 <div id="kindergartens">
   <% @kindergartens.each do |kindergarten| %>
-    <%= render kindergarten %>
-    <p>
-      <%= link_to "Show this kindergarten", kindergarten %>
-    </p>
+    <%= link_to kindergarten_path(kindergarten), class: "text-decoration-none text-black" do %>
+      <%= render kindergarten %>
+    <% end %>
   <% end %>
 </div>
-
-<%= link_to "New kindergarten", new_kindergarten_path %>

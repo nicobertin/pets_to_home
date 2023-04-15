@@ -31,17 +31,11 @@
     <%= form.number_field :phone %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
   <%= form.label :pet_ids, "Pets" %>
   <% Pet.all.each do |pet| %>
     <%= form.check_box :pet_ids, { multiple: true }, pet.id, nil %>
     <%= pet.name %>
   <% end %>
-
 
   <div>
     <%= form.submit %>
