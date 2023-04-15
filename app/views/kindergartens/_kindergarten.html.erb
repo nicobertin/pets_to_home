@@ -1,5 +1,10 @@
 <div id="<%= dom_id kindergarten %>" class="card shadow-sm border-0">
   <div class="card-body">
+
+    <%= image_tag kindergarten.image, class: "w-100" if kindergarten.image.attached? %>
+
+
+
     <p>
       <strong>Name:</strong>
       <%= kindergarten.name %>
