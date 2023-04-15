@@ -36,6 +36,11 @@
     <%= form.number_field :phone %>
   </div>
 
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+
   <%= form.label :pet_ids, "Pets" %>
   <% Pet.all.each do |pet| %>
     <%= form.check_box :pet_ids, { multiple: true }, pet.id, nil %>

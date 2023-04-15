@@ -30,9 +30,14 @@
       <%= kindergarten.user.email %>
     </p>
 
-    <p class="mb-0">
+    <p>
       <strong>Pets:</strong>
       <%= kindergarten.pets.map(&:name).join(", ") %>
+    </p>
+
+    <p class="mb-0">
+      <strong>Price:</strong>
+      <%= kindergarten.price %>
     </p>
 
   </div>
