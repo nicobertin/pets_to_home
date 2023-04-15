@@ -1,6 +1,7 @@
 class KindergartensController < ApplicationController
   before_action :set_kindergarten, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   # GET /kindergartens or /kindergartens.json
   def index
@@ -68,4 +69,11 @@ class KindergartensController < ApplicationController
     def kindergarten_params
       params.require(:kindergarten).permit(:name, :description, :city_id, :phone, :user_id, :image, :price,:pet_ids => [])
     end
+
+    def authorize_user
+    unless @kindergarten.user == current_user
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to @kindergarten
+    end
+  end
 end
