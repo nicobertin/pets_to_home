@@ -1,0 +1,20 @@
+es:
+  activerecord:
+    errors:
+      models:
+        kindergarten:
+          attributes:
+            city:
+              required: "La ciudad es obligatoria."
+            name:
+              blank: "El nombre es obligatorio."
+            description:
+              blank: "La descripción es obligatoria."
+            price:
+              blank: "El precio es obligatorio."
+            phone:
+              blank: "El teléfono es obligatorio."
+            city_id:
+              blank: "La ciudad es obligatoria."
+            image:
+              blank: "La imagen es obligatoria."
