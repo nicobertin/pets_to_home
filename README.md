@@ -1,10 +1,6 @@
 # Pets to Home
 
-Pets to Home es una startup en Chile que ofrece servicios de guardería para mascotas. Debido a su rápido crecimiento, se han visto imposibilitados de abrir locales físicos en la misma proporción, por lo que han decidido cambiar su modelo de negocio y crear una plataforma en la que cualquier persona pueda ofrecer su hogar para cuidar mascotas. 
-
-## Descripción
-
-Esta plataforma es fácil de usar y ofrece a los dueños de mascotas la posibilidad de encontrar un hogar seguro y amoroso para dejar a sus mascotas mientras están fuera, garantizando que sean tratadas con el mismo amor y cuidado que recibirían en casa.
+Pets to Home es una startup en Chile que ofrece servicios de guardería para mascotas. Debido a su rápido crecimiento, se han visto imposibilitados de abrir locales físicos en la misma proporción, por lo que han decidido cambiar su modelo de negocio y crear una plataforma en la que cualquier persona pueda ofrecer su hogar para cuidar mascotas. Esta plataforma es fácil de usar y ofrece a los dueños de mascotas la posibilidad de encontrar un hogar seguro y amoroso para dejar a sus mascotas mientras están fuera, garantizando que sean tratadas con el mismo amor y cuidado que recibirían en casa.
 
 ### Pre-requisitos 📋
 
@@ -46,11 +42,6 @@ rails db:migrate
 ```bash
 rails db:seed
 ```
-
-Usuario de pruebas creado con seed:
-
-correo: admin@petstohome.cl
-contraseña: admin1234
 
 ## Hecho con 🛠️
 

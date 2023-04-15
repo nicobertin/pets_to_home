@@ -74,3 +74,4 @@ end
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem "kaminari"
+gem "ransack"

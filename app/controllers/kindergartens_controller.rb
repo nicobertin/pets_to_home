@@ -5,7 +5,8 @@ class KindergartensController < ApplicationController
 
   # GET /kindergartens or /kindergartens.json
   def index
-    @kindergartens = Kindergarten.page(params[:page])
+    @q = Kindergarten.ransack(params[:q])
+    @kindergartens = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /kindergartens/1 or /kindergartens/1.json
