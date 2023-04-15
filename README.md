@@ -47,6 +47,11 @@ rails db:migrate
 rails db:seed
 ```
 
+Usuario de pruebas creado con seed:
+
+correo: admin@petstohome.cl
+contraseña: admin1234
+
 ## Hecho con 🛠️
 
 * [Ruby](https://www.ruby-lang.org/en/) - Lenguaje de programación
