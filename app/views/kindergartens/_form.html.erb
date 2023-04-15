@@ -1,12 +1,16 @@
 <%= form_with(model: kindergarten, class: "row g-3") do |form| %>
   <% if kindergarten.errors.any? %>
     <div class="col-md-12" style="color: red">
-      <h2><%= pluralize(kindergarten.errors.count, "error") %> prohibited this kindergarten from being saved:</h2>
-      <ul>
+    
         <% kindergarten.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          
+        <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm" role="alert">
+          <%= error.full_message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <% end %>
-      </ul>
+     
     </div>
   <% end %>
   <div class="col-md-12">

@@ -7,6 +7,10 @@ class KindergartensController < ApplicationController
   def index
     @q = Kindergarten.ransack(params[:q])
     @kindergartens = @q.result(distinct: true).page(params[:page])
+
+    if @kindergartens.count == 0
+      flash[:notice] = "Sin resultados"
+    end
   end
 
   # GET /kindergartens/1 or /kindergartens/1.json
