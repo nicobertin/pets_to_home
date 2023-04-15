@@ -1,8 +1,7 @@
-<%= form_with(model: kindergarten) do |form| %>
+<%= form_with(model: kindergarten, class: "row g-3") do |form| %>
   <% if kindergarten.errors.any? %>
-    <div style="color: red">
+    <div class="col-md-12" style="color: red">
       <h2><%= pluralize(kindergarten.errors.count, "error") %> prohibited this kindergarten from being saved:</h2>
-
       <ul>
         <% kindergarten.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,44 +9,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :image, style: "display: block" %> 
-    <%= form.file_field :image %>
+  <div class="col-md-12">
+    <%= form.label :image, "Portada", class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="col-md-6">
+    <%= form.label :name, "Titulo", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="col-md-6">
+    <%= form.label :phone, "Teléfono", class: "form-label" %>
+    <%= form.number_field :phone, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :city_id, style: "display: block" %>
-    <%= form.collection_select :city_id, City.all, :id, :name %>
+  <div class="col-md-6">
+    <%= form.label :price, "Precio", class: "form-label" %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.number_field :phone %>
+  <div class="col-md-6">
+    <%= form.label :city_id, "Ciudad", class: "form-label" %>
+    <%= form.collection_select :city_id, City.all, :id, :name, { prompt: "Elije una ciudad" }, class: "form-select" %>
   </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+  <div class="col-md-12">
+    <%= form.label :description, "Descripción", class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
+ <div class="col-md-12">
+  <%= form.label :pet_ids, "Mascotas aceptadas", class: "form-label" %>
+  <ul class="list-unstyled row row-cols-5 mb-3">
+    <% Pet.all.each do |pet| %>
+      <li class="col">
+        <div class="form-check">
+          <%= form.check_box :pet_ids, { multiple: true, class: "form-check-input" }, pet.id, nil %>
+          <%= form.label :pet_ids, pet.name, class: "form-check-label" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-  <%= form.label :pet_ids, "Pets" %>
-  <% Pet.all.each do |pet| %>
-    <%= form.check_box :pet_ids, { multiple: true }, pet.id, nil %>
-    <%= pet.name %>
-  <% end %>
-
-  <div>
-    <%= form.submit %>
+  <div class="col-md-12">
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
   </div>
 <% end %>

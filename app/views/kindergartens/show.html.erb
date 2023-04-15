@@ -1,8 +1,8 @@
 <%= render @kindergarten %>
 
 <% if @kindergarten.user == current_user%>
-  <div>
-    <%= link_to "Edit this kindergarten", edit_kindergarten_path(@kindergarten) %>
-    <%= button_to "Destroy this kindergarten", @kindergarten, method: :delete %>
+  <div class="interactive-btns">
+    <%= link_to "Editar", edit_kindergarten_path(@kindergarten), class: 'btn btn-warning' %>
+    <%= button_to "Eliminar", @kindergarten, method: :delete, class: 'btn btn-danger' %>
   </div>
 <% end %>

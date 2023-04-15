@@ -11,17 +11,29 @@
           <%= f.collection_select :city_id_eq, City.all, :id, :name, { include_blank: true }, { class: "form-control mr-sm-2" } %>
         </div>
         <div class="d-grid gap-2">
-          <%= f.submit "Buscar", class: "btn btn-primary mt-3" %>
+          <%= f.submit "Buscar", class: "btn btn-primary my-3" %>
         </div>
       <% end %>
     </div>
     <div class="col-md-9">
       <div id="kindergartens" class="list-group">
-        <% @kindergartens.each do |kindergarten| %>
-          <%= link_to kindergarten_path(kindergarten), class: "text-decoration-none text-black" do %>
-            <%= render kindergarten %>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <% @kindergartens.each do |kindergarten| %>
+            <%= link_to kindergarten_path(kindergarten), class: "text-decoration-none text-black" do %>
+              <div class="col">
+                <div id="<%= dom_id kindergarten %>" class="card h-100 shadow border-0 mb-3">
+                  <%= image_tag kindergarten.image, class: "card-img-top" if kindergarten.image.attached? %>
+                  <div class="card-body">
+                    <h4 class="fw-bold"><%= kindergarten.name %></h4>
+                      <p><strong>Disponible en:</strong> <%= kindergarten.city.name %></p>
+                      <p><strong>Mascotas permitidas:</strong> <%= kindergarten.pets.map(&:name).join(", ") %></p>               
+                      <p class=" fs-2 fw-bold text-success"><%= number_to_currency(kindergarten.price, precision: 0, delimiter: ".", separator: ",") %></p>         
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
         <%= paginate @kindergartens, class: "pagination justify-content-center" %>
       </div>
     </div>

@@ -1,44 +1,18 @@
-<div id="<%= dom_id kindergarten %>" class="card shadow-sm border-0 mb-3">
+  <%= image_tag kindergarten.image, class: "w-100 rounded-2 shadow" if kindergarten.image.attached? %>
+<div id="<%= dom_id kindergarten %>" class="card shadow border-0 my-3">
   <div class="card-body">
-
-    <%= image_tag kindergarten.image, class: "w-100" if kindergarten.image.attached? %>
-
-
-
-    <p>
-      <strong>Name:</strong>
-      <%= kindergarten.name %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= kindergarten.description %>
-    </p>
-
-    <p>
-      <strong>City:</strong>
-      <%= kindergarten.city.name %>
-    </p>
-
-    <p>
-      <strong>Phone:</strong>
-      <%= kindergarten.phone %>
-    </p>
-
-    <p>
-      <strong>User:</strong>
-      <%= kindergarten.user.email %>
-    </p>
-
-    <p>
-      <strong>Pets:</strong>
-      <%= kindergarten.pets.map(&:name).join(", ") %>
-    </p>
-
-    <p class="mb-0">
-      <strong>Price:</strong>
-      <%= kindergarten.price %>
-    </p>
-
+    <h3 class="card-title fw-bold"><%= kindergarten.name %></h3>
+    <p class="text-muted"><%= kindergarten.description %></p>
+    <div class="row mt-4">
+        <p><strong>Disponible en:</strong> <%= kindergarten.city.name %></p>
+        <p><strong>Mascotas permitidas:</strong> <%= kindergarten.pets.map(&:name).join(", ") %></p>
+      <div class="col-md-6">
+        <p><strong>Llamanos al:</strong> <%= kindergarten.phone %></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Contáctanos en:</strong> <%= kindergarten.user.email %></p>
+      </div>
+        <p class=" fs-1 fw-bold text-success"><%= number_to_currency(kindergarten.price, precision: 0, delimiter: ".", separator: ",") %></p>
+    </div>
   </div>
 </div>
